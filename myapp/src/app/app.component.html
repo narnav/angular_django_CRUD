@@ -1,0 +1,27 @@
+<h1>New Task</h1>
+<div>
+  <label for="title">Title:</label>
+  <input     type="text"   id="title"   name="title"    #title    required  />
+</div>
+<div>
+  <label for="description">Description:</label>
+  <textarea
+    id="description"    name="description"    #description    required  ></textarea>
+</div>
+<div>
+  <label for="completed">Completed:</label>
+  <input     type="checkbox"    id="completed"    name="completed"    #completed  />
+</div>
+<button (click)="addTask(title.value,description.value,completed.checked)">Add task</button>
+<hr>
+{{ tasks | json }}
+
+<div *ngFor="let task of tasks">
+  <p>del: <button (click)="delTask(task.id)"> {{ task.id }}</button></p>
+  <p>update: <button (click)="updTask(task.id,title.value,description.value,completed.checked)"> {{ task.id }}</button></p>
+  <p>Title: {{ task.title }}</p>
+  <p>Description: {{ task.description }}</p>
+  <p>Completed: {{ task.completed ? "Yes" : "No" }}</p>
+</div>
+
+
